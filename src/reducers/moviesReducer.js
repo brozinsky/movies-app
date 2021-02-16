@@ -12,6 +12,14 @@ const moviesReducer = (state = initState, action) => {
         default:
             return { ...state }
     }
+};
+
+const fetchMovies = (userData) => {
+    return {
+        type: 'FETCH_MOVIES',
+    }
 }
+
+fetchMovies();
 
 export default moviesReducer;
