@@ -8,18 +8,10 @@ const initState = {
 const moviesReducer = (state = initState, action) => {
     switch (action.type) {
         case 'FETCH_MOVIES':
-            return { ...state }
+            return { ...state, popular: action.payload.popular }
         default:
             return { ...state }
     }
 };
-
-const fetchMovies = (userData) => {
-    return {
-        type: 'FETCH_MOVIES',
-    }
-}
-
-fetchMovies();
 
 export default moviesReducer;
