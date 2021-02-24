@@ -71,9 +71,9 @@ justify-content: center;
     min-height: 100%;
 
   }
-  .movie:hover .movie-overview{
+  /* .movie:hover .movie-overview{
     transform: translateY(0);
-  }
+  } */
 .overview-title{
     display: flex;
     align-items: center;
