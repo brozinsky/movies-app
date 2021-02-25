@@ -10,7 +10,7 @@ const moviesReducer = (state = initState, action) => {
         case 'FETCH_MOVIES':
             return { ...state, popular: action.payload.popular }
         default:
-            return { ...state }
+            return { ...state };
     }
 };
 

@@ -16,7 +16,6 @@ const HomePage = () => {
     const location = useLocation();
     const path = location.pathname.split('/');
 
-
     const getMovies = (API) => {
         fetch(API)
             .then((res) => res.json())
@@ -38,7 +37,6 @@ const HomePage = () => {
                     }
                 })
             })
-
     }
 
     useEffect(() => {

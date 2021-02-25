@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import { useDispatch } from 'react-redux';
 
 const IMG_API = `https://image.tmdb.org/t/p/w1280`;
 
@@ -16,10 +16,32 @@ const setVoteClass = (vote) => {
     }
 }
 
+const apiKey = process.env.REACT_APP_API_KEY;
+
+const getDetails = (id) => (dispatch) => {
+    const DETAILS_API = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US`;
+
+    fetch(DETAILS_API)
+        .then((res) => res.json())
+        .then((data) => {
+            dispatch({
+                type: 'FETCH_DETAILS',
+                payload: {
+                    movie: data,
+                }
+            })
+        })
+}
+
 const Movie = ({ title, poster_path, overview, vote_average, id }) => {
+
+    const dispatch = useDispatch();
+    const loadDetailsHandler = () => {
+        dispatch(getDetails(id))
+    }
     return (
         <Link to={`/movie/${id}`}>
-            <div className='movie'>
+            <div onClick={loadDetailsHandler} className='movie'>
                 <img src={poster_path ? IMG_API + poster_path : 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1950&q=80'} alt={title} />
                 <div className="movie-info">
                     <h3>{title}</h3>
