@@ -20,7 +20,6 @@ const apiKey = process.env.REACT_APP_API_KEY;
 
 const getDetails = (id) => (dispatch) => {
     const DETAILS_API = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US`;
-
     fetch(DETAILS_API)
         .then((res) => res.json())
         .then((data) => {
@@ -33,11 +32,27 @@ const getDetails = (id) => (dispatch) => {
         })
 }
 
+const getCredits = (id) => (dispatch) => {
+    const CREDITS_API = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${apiKey}&language=en-US`;
+    fetch(CREDITS_API)
+        .then((res) => res.json())
+        .then((data) => {
+            dispatch({
+                type: 'FETCH_CREDITS',
+                payload: {
+                    credits: data,
+                }
+            })
+        })
+}
+
 const Movie = ({ title, poster_path, overview, vote_average, id }) => {
 
     const dispatch = useDispatch();
     const loadDetailsHandler = () => {
+        dispatch(getCredits(id))
         dispatch(getDetails(id))
+
     }
     return (
         <Link to={`/movie/${id}`}>
@@ -60,7 +75,7 @@ const Movie = ({ title, poster_path, overview, vote_average, id }) => {
                     </div>
                     <div className="overview-text">
                         <h4>Overview:</h4>
-                        <p >{overview} {overview}</p>
+                        <p >{overview}</p>
                     </div>
                 </div>
             </div>

@@ -103,10 +103,151 @@ color: green;
 }
 .badge.yellow{
   color: yellow;
-  }
+}
 .badge.orange{
   color: orange;
-  }
-  .badge.red{
+}
+.badge.red{
     color: red;
-    }
+}
+
+  /* movie details */
+
+.shadow{
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0,0,0,0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+}
+.card{
+  width: 85vw;
+  margin: auto;
+  height: 90vh;
+  background-color: #373b69;
+  position: relative;
+  z-index: 2;
+}
+.poster-img{
+  height: 30rem;
+}
+.info-header{
+  display: flex;
+  flex-direction: row;
+  background: none;
+}
+.info-tagline{
+color: #ecedf5b0;
+}
+.info-votes{
+  color: #ecedf5b0;
+  font-size: 0.7rem;
+  margin-left: 0.5rem;
+}
+.info-background{
+  background: red;
+  height: 100%;
+  width: 100%;
+  position: 'absolute';
+  top: 0;
+  left: 0;
+}
+.close{
+  /* border-radius: 50%; */
+  height: 2.5rem;
+  width: 2.5rem;
+  background: #999ba8;
+  position: absolute;
+  top: 0rem;
+  right: 0rem;
+  cursor: pointer;
+  line-height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+.close:hover{
+  background: #c2c3d1;
+}
+.close:before, .close:after {
+  position: absolute;
+  left: 15px;
+  content: ' ';
+  height: 25px;
+  width: 2px;
+  background-color: #373b69;
+  margin-left : 0.3rem;
+}
+.close:before {
+  transform: rotate(45deg);
+}
+.close:after {
+  transform: rotate(-45deg);
+}
+.wrap-info{
+    padding: 1rem 1rem;
+}
+.page-link{
+  background: #c2c3d1;
+  padding: 0.5em 1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 500;
+  color: #373b69;
+}
+.page-link:hover {
+  background: #999ba8;
+}
+.info-tags{
+  margin-top: 1.3rem;
+}
+.info-tag{
+  color: #373b69;
+  padding: 0.2em 0.5em;
+  border-radius: 20px;
+  background: #ecedf5b0;
+  margin-right: 0.5rem;
+  font-size: 0.9rem;
+}
+.background-img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  opacity: 0.3;
+}
+
+/* cast */
+.cast{
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+.cast-wrap{
+  display: flex;
+  flex-direction: row;
+}
+.cast-title{
+  width: 100%;
+}
+.actor{
+  margin: 1rem;
+}
+.actor-img{
+  height: 10rem;
+  width: 106px;
+  object-fit: cover;
+}
+.actor-name{
+  font-size: 1.1rem;
+  margin: 0.2rem 0;
+}
+.actor-char{
+  font-size: 0.8rem;
+  margin: 0.2rem 0;
+}

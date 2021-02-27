@@ -1,23 +1,19 @@
 const initState = {
-    movie: {
-        release_date: '',
-        original_language: '',
-        genres: [
-            { id: null, name: '' }
-        ],
+    credits: {
+        cast: [],
     },
     isLoading: true,
 }
 
-const detailsReducer = (state = initState, action) => {
+const creditsReducer = (state = initState, action) => {
     switch (action.type) {
-        case 'FETCH_DETAILS':
+        case 'FETCH_CREDITS':
             return {
                 ...state,
-                movie: action.payload.movie,
+                credits: action.payload.credits,
                 isLoading: false,
             }
-        case 'LOADING_DETAILS':
+        case 'LOADING_CREDITS':
             return {
                 ...state,
                 isLoading: true,
@@ -27,4 +23,4 @@ const detailsReducer = (state = initState, action) => {
     }
 };
 
-export default detailsReducer;
+export default creditsReducer;

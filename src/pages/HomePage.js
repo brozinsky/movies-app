@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import '../App.css';
 import Movie from '../components/Movie';
+import MovieDetails from '../components/MovieDetails';
 import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
@@ -14,7 +15,7 @@ const HomePage = () => {
     const [searchTerm, setSearchTerm] = useState('');
 
     const location = useLocation();
-    const path = location.pathname.split('/');
+    const pathId = location.pathname.split('/')[2];
 
     const getMovies = (API) => {
         fetch(API)
@@ -71,6 +72,7 @@ const HomePage = () => {
                         onChange={handleOnChange} />
                 </form>
             </header>
+            {pathId && <MovieDetails />}
 
             <div className="movie-container">
                 {
