@@ -6,7 +6,7 @@ const Cast = (props) => {
 
     return (
         <div className="actor">
-            <img className="actor-img" src={props.image ? IMG_API + props.image : 'https://pixy.org/src/139/1394670.png'} alt="" />
+            <img className="actor-img" src={props.image ? IMG_API + props.image : 'https://pixy.org/src/139/1394670.png'} alt={props.name} />
             <p className="actor-name">{props.name}</p>
             <p className="actor-char">{props.charName}</p>
         </div>

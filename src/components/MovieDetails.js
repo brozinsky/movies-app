@@ -37,15 +37,16 @@ const MovieDetails = () => {
                                 {movie.genres.map(genre =>
                                     <span className="info-tag">{genre.name}</span>)}
                             </div>
-                            <h1>
+                            <h1 className="info-title">
                                 {movie.title}
                                 <span className="info-year">
                                     &nbsp;({movie.release_date.slice(0, 4)})
                                 </span>
                             </h1>
-                            <h3>{movie.title === movie.original_title ?
-                                null :
-                                movie.original_title}&nbsp;
+                            <h3 className="info-secondary">
+                                {movie.title === movie.original_title ?
+                                    null :
+                                    movie.original_title}&nbsp;
                                 <span>{movie.release_date}&nbsp;({movie.original_language.toUpperCase()})</span>
                             </h3>
                             <div className="info-movie">
@@ -56,8 +57,14 @@ const MovieDetails = () => {
                                 <span className="info-votes">
                                     {movie.vote_count + ' user votes'}
                                 </span>
-
                             </div>
+                            <h5 className="director-title">Director:
+                            <span className="director-name">{credits.crew.map(person =>
+                                person.job === 'Director' ? person.name : null
+
+                            )}</span> </h5>
+                            <h5 className="writer-title">Screenwriter:
+                                <span className="writer-name">{credits.crew.map(person => person.job === 'Screenplay' || person.job === 'Writer' ? person.name + ', ' : null)}</span> </h5>
                             <h4 className='info-tagline'>
                                 {movie.tagline}
                             </h4>
@@ -67,7 +74,7 @@ const MovieDetails = () => {
                             </div>
                             <a className='page-link'
                                 href={movie.homepage}>
-                                {'Watch >'}
+                                {'Watch now >'}
                             </a>
                         </div>
                     </header>

@@ -1,6 +1,7 @@
 const initState = {
     credits: {
         cast: [],
+        crew: [],
     },
     isLoading: true,
 }
