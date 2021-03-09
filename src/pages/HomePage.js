@@ -2,16 +2,18 @@ import React, { useEffect, useState } from 'react'
 import '../App.css';
 import Movie from '../components/Movie';
 import MovieDetails from '../components/MovieDetails';
-import { useDispatch } from 'react-redux';
+import Pagination from '../components/Pagination';
+import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import { fetchMovies } from '../actions/actions';
 
 const apiKey = process.env.REACT_APP_API_KEY;
-const FEATURED_API = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${apiKey}&page=1`;
 const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=`;
 
 const HomePage = () => {
+
     const dispatch = useDispatch();
-    const [movies, setMovies] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
 
     const location = useLocation();
@@ -21,31 +23,24 @@ const HomePage = () => {
         fetch(API)
             .then((res) => res.json())
             .then((data) => {
-                setMovies(data.results);
-                console.log(data)
-            })
-    }
-
-    const fetchMovies = (API) => (dispatch) => {
-        const popularData = fetch(API)
-            .then((res) => res.json())
-            .then((data) => {
-                // setMovies(data.results);
-                dispatch({
-                    type: 'FETCH_MOVIES',
-                    payload: {
-                        popular: data.results,
+                // console.log(data.total_pages)
+                dispatch(
+                    {
+                        type: 'FETCH_MOVIES',
+                        payload: {
+                            popular: data.results,
+                            totalPages: data.total_pages,
+                        }
                     }
-                })
+                )
             })
     }
 
     useEffect(() => {
-        getMovies(FEATURED_API);
-        dispatch(fetchMovies(FEATURED_API))
-    }, []);
+        dispatch(fetchMovies())
+    }, [dispatch]);
 
-
+    const movies = useSelector(state => state.movies.popular.results)
 
     const handleOnSubmit = (e) => {
         e.preventDefault();
@@ -57,12 +52,20 @@ const HomePage = () => {
 
     const handleOnChange = (e) => {
         setSearchTerm(e.target.value);
+    }
 
+    const history = useHistory();
+    const handleHomeClick = () => {
+        dispatch(fetchMovies(1))
+        const location = {
+            pathname: '/page=1'
+        }
+        history.push(location)
     }
     return (
         <>
             <header>
-                <h1 className='title'>Moovies</h1>
+                <h1 onClick={handleHomeClick} className='title'>Moovies</h1>
                 <form onSubmit={handleOnSubmit}>
                     <input
                         className='search'
@@ -72,8 +75,8 @@ const HomePage = () => {
                         onChange={handleOnChange} />
                 </form>
             </header>
+            <Pagination />
             {pathId && <MovieDetails />}
-
             <div className="movie-container">
                 {
                     movies.length > 0 && movies.map((movie) =>
@@ -83,6 +86,7 @@ const HomePage = () => {
                     )
                 }
             </div>
+            <Pagination />
         </>
     );
 }

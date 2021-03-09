@@ -1,7 +1,7 @@
 import React from 'react';
 import Cast from './Cast';
 import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const IMG_API = `https://image.tmdb.org/t/p/w1280`;
 
@@ -20,13 +20,18 @@ const setVoteClass = (vote) => {
 const MovieDetails = () => {
     const { movie } = useSelector((state) => state.details);
     const { credits } = useSelector((state) => state.credits);
+    const history = useHistory();
+
+    const handleCloseClick = () => {
+        history.goBack();
+    }
 
     return (
         <>
             <div className="shadow">
                 <div className="card">
-                    <Link className="close" to={'/'}>
-                    </Link>
+                    <div className="close" onClick={handleCloseClick}>
+                    </div>
                     <header className="info-header">
                         <img className="background-img" src={movie.backdrop_path ? IMG_API + movie.backdrop_path : ''} alt="" />
                         <div className="overlay"></div>

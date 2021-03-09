@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { getDetails, getCredits } from '../actions/actions';
 
 const IMG_API = `https://image.tmdb.org/t/p/w1280`;
 
@@ -16,43 +17,12 @@ const setVoteClass = (vote) => {
     }
 }
 
-const apiKey = process.env.REACT_APP_API_KEY;
-
-const getDetails = (id) => (dispatch) => {
-    const DETAILS_API = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US`;
-    fetch(DETAILS_API)
-        .then((res) => res.json())
-        .then((data) => {
-            dispatch({
-                type: 'FETCH_DETAILS',
-                payload: {
-                    movie: data,
-                }
-            })
-        })
-}
-
-const getCredits = (id) => (dispatch) => {
-    const CREDITS_API = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${apiKey}&language=en-US`;
-    fetch(CREDITS_API)
-        .then((res) => res.json())
-        .then((data) => {
-            dispatch({
-                type: 'FETCH_CREDITS',
-                payload: {
-                    credits: data,
-                }
-            })
-        })
-}
-
 const Movie = ({ title, poster_path, overview, vote_average, id }) => {
 
     const dispatch = useDispatch();
     const loadDetailsHandler = () => {
         dispatch(getCredits(id))
         dispatch(getDetails(id))
-
     }
     return (
         <Link to={`/movie/${id}`}>

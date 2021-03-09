@@ -94,6 +94,7 @@ header {
   font-family: 'Orbitron', 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.5rem;
+  cursor: pointer;
 }
 
 .badge {
@@ -122,6 +123,82 @@ header {
 .badge.red {
   color: red;
 }
+
+/* pages */
+.pages {
+  margin: 0.5rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.pages-btn,
+.pages-change {
+  font-size: 1.2rem;
+  list-style-type: none;
+  color: #ecedf5b0;
+  border-radius: 5px;
+  width: 100%;
+  display: inline;
+  cursor: pointer;
+}
+
+.pages-btn.disabled {
+  opacity: 0.2;
+}
+.pages-btn.disabled:hover {
+  background: none;
+  color: #ecedf5b0;
+}
+
+.pages-btn {
+  display: inline;
+  padding: 0.3rem 0.3rem;
+  margin: 1rem 0.2rem;
+  color: #ecedf5b0;
+}
+.pages-li {
+  display: inline;
+  list-style-type: none;
+}
+
+.pages-break {
+  display: inline;
+  padding: 0.3rem 0.3rem;
+  margin: 1rem 0.2rem;
+}
+.pages-change {
+  border: solid 1px #ecedf5b0;
+  padding: 0.3rem 0.6rem;
+  margin: 1rem 0.4rem;
+}
+
+.pages-active {
+  background: #ecedf5b0;
+  color: #101131;
+}
+
+.pages-inactive {
+  font-size: 1.2rem;
+  list-style-type: none;
+  color: #ecedf5b0;
+  border-radius: 10px;
+  width: 100%;
+  display: inline;
+  padding: 0.3rem 0.4rem;
+  margin: 1rem 0.2rem;
+}
+
+.pages-inactive:hover {
+  cursor: default;
+}
+
+.pages-btn:hover,
+.pages-change:hover {
+  background: #ecedf5b0;
+  color: #101131;
+}
+
+
 
 /* movie details */
 
