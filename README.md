@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+# Movies App
+
+A movie search app built with React. It uses The Movie Database (TMDb) API to display data. App's features include search movies by title, list popular movies, view details of a selected movie (cast, genres, user scores). State managed using Redux, styling in CSS.
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -68,3 +72,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Built With
+
+- [React](https://reactjs.org/)
+- [Redux](https://redux.js.org/)
+- [React-Router](https://github.com/ReactTraining/react-router)
