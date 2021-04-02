@@ -27,7 +27,9 @@ const Movie = ({ title, poster_path, overview, vote_average, id }) => {
     return (
         <Link to={`/movie/${id}`}>
             <div onClick={loadDetailsHandler} className='movie'>
-                <img src={poster_path ? IMG_API + poster_path : 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1950&q=80'} alt={title} />
+                <div className="img-container">
+                    <img src={poster_path ? IMG_API + poster_path : 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1950&q=80'} alt={title} />
+                </div>
                 <div className="movie-info">
                     <h3>{title}</h3>
                     <span

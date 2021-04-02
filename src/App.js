@@ -7,9 +7,9 @@ function App() {
 
   return (
     <>
-      <Route path={['/movie/:id', '/page=:page']}>
-        <HomePage />
-      </Route>
+      {/* <Route path={['/movie/:id', '/page=:page']}> */}
+      <HomePage />
+      {/* </Route> */}
     </>
   );
 }

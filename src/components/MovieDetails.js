@@ -42,12 +42,12 @@ const MovieDetails = () => {
                                 {movie.genres.map(genre =>
                                     <span className="info-tag">{genre.name}</span>)}
                             </div>
-                            <h1 className="info-title">
+                            <h2 className="info-title">
                                 {movie.title}
                                 <span className="info-year">
                                     &nbsp;({movie.release_date.slice(0, 4)})
                                 </span>
-                            </h1>
+                            </h2>
                             <h3 className="info-secondary">
                                 {movie.title === movie.original_title ?
                                     null :
@@ -56,7 +56,7 @@ const MovieDetails = () => {
                             </h3>
                             <div className="info-movie">
                                 <span
-                                    className={`badge ${setVoteClass(movie.vote_average)}`}
+                                    className={`badge ${setVoteClass(movie.vote_average)} badge-details`}
                                 >{movie.vote_average}
                                 </span>
                                 <span className="info-votes">

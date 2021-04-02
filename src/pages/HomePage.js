@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import { fetchMovies } from '../actions/actions';
+import tmdb from '../img/tmdb.png';
 
 const apiKey = process.env.REACT_APP_API_KEY;
 const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=`;
@@ -66,6 +67,7 @@ const HomePage = () => {
         <>
             <header>
                 <h1 onClick={handleHomeClick} className='title'>Moovies</h1>
+                <img className='tmdb' src={tmdb} alt='Powered by The Movie DB' />
                 <form onSubmit={handleOnSubmit}>
                     <input
                         className='search'
