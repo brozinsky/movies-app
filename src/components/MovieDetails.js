@@ -39,8 +39,8 @@ const MovieDetails = () => {
                             alt={movie.title} />
                         <div className="wrap-info">
                             <div className="info-tags">
-                                {movie.genres.map(genre =>
-                                    <span className="info-tag">{genre.name}</span>)}
+                                {movie.genres.map((genre, i) =>
+                                    <span key={i} className="info-tag">{genre.name}</span>)}
                             </div>
                             <h2 className="info-title">
                                 {movie.title}
@@ -69,7 +69,9 @@ const MovieDetails = () => {
 
                             )}</span> </h5>
                             <h5 className="writer-title">Screenwriter:
-                                <span className="writer-name">{credits.crew.map(person => person.job === 'Screenplay' || person.job === 'Writer' ? person.name + ', ' : null)}</span> </h5>
+                                <span className="writer-name">{credits.crew.map(person =>
+                                person.job === 'Screenplay' || person.job === 'Writer'
+                                    ? person.name + ', ' : null)}</span> </h5>
                             <h4 className='info-tagline'>
                                 {movie.tagline}
                             </h4>
@@ -86,8 +88,8 @@ const MovieDetails = () => {
                     <section className='cast'>
                         <h2 className='cast-title'>Cast</h2>
                         <div className="cast-wrap">
-                            {credits.cast.map(actor =>
-                                <Cast image={actor.profile_path} name={actor.name} charName={actor.character}>{actor.character}</Cast>)}
+                            {credits.cast.map((actor, i) =>
+                                <Cast key={i} image={actor.profile_path} name={actor.name} charName={actor.character}>{actor.character}</Cast>)}
                         </div>
                     </section>
                 </div>
