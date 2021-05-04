@@ -264,6 +264,7 @@ header form {
 .info-title {
   color: var(--primary-color);
   font-size: 2rem;
+  margin: 1rem 0;
 }
 
 .poster-img {
@@ -332,9 +333,7 @@ header form {
   padding: 1rem 3rem;
 }
 
-.info-title {
-  margin: 1rem 0;
-}
+
 
 .info-secondary {
   margin: 0.5rem 0;
@@ -446,4 +445,94 @@ header form {
 .actor-char {
   font-size: 0.8rem;
   margin: 0.2rem 0;
+}
+
+@media (max-width: 1200px) {
+.title {
+  text-align: left;
+  font-size: 2.2rem;
+  line-height: 53px;
+  margin: 0 auto 1rem auto;
+}
+
+.tmdb{
+  position: absolute;
+  top: 1rem;
+  right: 0;
+  width: 4.5rem;
+}
+ul{
+  margin: 0;
+  padding: 0;
+}
+.pages-btn{
+  font-size: 1.1rem;
+  padding: 0.1rem 0.15rem;
+}
+
+.card {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  position: absolute;
+  overflow-y: auto;
+}
+
+.poster-img {
+  display: none;
+}
+
+.wrap-info {
+  padding: 0;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.info-title {
+  font-size: 1.7rem;
+  margin: 0.5rem 0;
+}
+
+.info-tagline {
+  color: var(--stroke-color);
+  margin: 0;
+  margin-top: 1rem;
+  font-size: 1.4rem;
+}
+
+.info-tags {
+  margin-top: 1.3rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.info-tag {
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  margin-right: 0.8rem;
+  font-size: 0.8rem;
+}
+
+
+/* cast */
+.cast {
+  margin-top: 2rem;
+}
+
+.cast-wrap {
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.cast-title {
+  margin: 0;
+  text-align: center;
+}
+
+.actor {
+  margin: 1rem;
+  max-width: 100px;
+}
 }
